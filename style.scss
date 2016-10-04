@@ -1,0 +1,190 @@
+/* Imports */
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css";
+
+/* Variables */
+$text-shadow: 1px 1px 1px #000;
+$icon-shadow: 2px 2px 2px #000;
+
+/* Mixins */
+@mixin flex-properties($display, $direction, $wrap, $justify, $items, $content) {
+	align-content: $content;
+	align-items: $items;
+	display: $display;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+	justify-content: $justify;
+	-webkit-align-content: $content;
+	-webkit-align-items: $items;
+	-webkit-display: "-webkit-#{$display}";
+	-webkit-flex-direction: $direction;
+	-webkit-flex-wrap: $wrap;
+	-webkit-justify-content: $justify;
+}
+
+@mixin mouse-effects($cursor, $opacity, $transform, $transition) {
+	cursor: $cursor;
+	opacity: $opacity;
+	transform: $transform;
+	transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-webkit-transition: $transition;
+}
+
+/* Generate for preview */
+@for $i from 0 through 3 {
+	#block#{$i} {
+		background: #FF4351;
+		border-right: 1px solid #eaedf1;
+		color: #FFF;
+		flex-grow: 1;
+		order: $i;
+		z-index: 1;
+		-webkit-flex-grow: 1;
+		-webkit-order: $i;
+	}
+}
+
+/* Placeholders */
+%panelButton {
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	width: 199px;
+}
+
+
+/* Typical elements */
+* {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	outline: none;
+}
+
+body {
+	//background: #F0F0F0;
+	background: #292929;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+header {
+	left: 0px;
+	margin-top: 5%;
+	text-align: center;
+	width: 100%;
+	z-index: 1;
+}
+
+footer {}
+
+h1 {
+	color: #FFF;
+	vertical-align: middle;
+}
+
+h5 {
+	color: #FFF;
+	vertical-align: middle;
+}
+
+/* Classes by name A-Z */
+.button {
+	z-index: 1;
+	&:hover {
+		@include mouse-effects(pointer, .85, scale(1), all .2s ease);
+	}
+	&:active {
+		@include mouse-effects(pointer, .75, scale(.97), all .2s ease);
+	}
+}
+
+.chordBlock {
+	font-size: 24px;
+	line-height: calc(200px / 3);
+	text-align: center;
+	text-shadow: 1px 1px 1px #000;
+	border-right: 1px solid #292929;
+	&:hover {
+		@include mouse-effects(pointer, .85, scale(1), all .2s ease);
+	}
+	&:active {
+		@include mouse-effects(pointer, .75, scale(.97), all .2s ease);
+	}
+}
+
+.container {
+	@include flex-properties(flex, row, wrap, space-around, initial, initial);
+	height: 200px;
+	margin: auto;
+	width: 80%;
+}
+
+.controlsArea {
+	@include flex-properties(flex, row, wrap, flex-end, initial, initial);
+	height: 200px;
+	width: 201px;
+}
+
+.disabledButton {
+	opacity: .5;
+	pointer-events: none;
+}
+
+.fancyText {
+	color: #FFF;
+	display: table-cell;
+	height: 100px;
+	text-shadow: $text-shadow;
+	vertical-align: middle;
+	width: 199px;
+}
+
+.icon {
+	color: #FFF;
+	text-shadow: $icon-shadow;
+	vertical-align: middle;
+}
+
+.keyTonality {
+	color: #FFF;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	white-space: pre;
+	width: 100%;
+}
+
+.progressionArea {
+	display: inline-block;
+	height: 200px;
+	margin: 0px -3px;
+	width: calc(100% - 200px);
+}
+
+.progression {
+	@include flex-properties(flex, row, nowrap, flex-start, stretch, stretch);
+	height: 200px;
+	padding: 0px 1px 0px 1px;
+	width: 100%;
+}
+
+/* IDs by Name A-Z */
+#refresh {
+	@extend %panelButton;
+	background: #FF0013; // For screenshot/preview
+	height: 99px;
+	line-height: 100px;
+	margin: 0px 1px 1px 0px;
+	
+}
+
+#fancy {
+	@extend %panelButton;
+	background: #FF0013; // For screenshot/preview
+	float: right;
+	height: 100px;
+	margin: 0px 1px 0px 0px;
+	width: 199px;
+}
