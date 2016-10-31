@@ -1,8 +1,18 @@
+/**
+* @Author: Matthew Juggins <matthewjuggins>
+* @Date:   04-10-16
+* @Email:  jugginsmatthew@gmail.com
+* @Last modified by:   matthewjuggins
+* @Last modified time: 26-10-16
+*/
+
+
+
 /* NOT WORKING IN SAFARI CURRENTLY.*/
 /*
  * Chord progression Generator.js
  * Matthew Juggins
- * Modified: 	30/08/16 : Refactoring, 
+ * Modified: 	30/08/16 : Refactoring,
  * 				31/08/16 : Fixed variation "O"
  *				13/09/16 : Darker theme to match other pens on showcase
  *
@@ -47,14 +57,14 @@ var colors = [
 	["#FEAE1B", "#FFEFD2", "#FFC966", "#D48A00", "#A66C00"],
 	["#DB49DB", "#FAECFA", "#E789E7", "#D811D8", "#B600B6"],
 	["#A4DE37", "#E7F2D3", "#C7EF7B", "#82C700", "#69A000"]
-]; // iOS7 colors to match keys in the circle of 5ths. 
+]; // iOS7 colors to match keys in the circle of 5ths.
 var chordProgression;
 var fancyCount = 0;
 var chordProgressions = function() {
 	/*********************
-	 * Priveledged methods 
+	 * Priveledged methods
 	 **********************/
-	// Adds array elements  
+	// Adds array elements
 	this.getSum = function(total, num) {
 		return total + num;
 	};
@@ -65,7 +75,7 @@ var chordProgressions = function() {
 	};
 
 	/*******************
-	 * Public properties 
+	 * Public properties
 	 ********************/
 	this.notesArray = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 	this.modulateAmount = [];
@@ -80,7 +90,7 @@ var chordProgressions = function() {
 	this.variations = [];
 	this.currentInfo = [];
 	this.info = [
-		// I, II, III, IV, V, VI, Vii, VII, ♭II, ♭III, ♭VI 
+		// I, II, III, IV, V, VI, Vii, VII, ♭II, ♭III, ♭VI
 		// Major key ♭II has dominant 7th for tritone
 		{
 			mode: "Major",
@@ -319,7 +329,7 @@ chordProgressions.prototype = {
 			newIntervals = this.currentIntervals,
 			newNotes = this.currentNotes,
 			newSequence = this.currentSequence;
-		
+
 		for (var i = 0; i < newChordIndexes.length; i++) {
 			newSequence.splice(splicePoint[i], 0, newChordIndexes[i]);
 			newNumerals.splice(splicePoint[i], 0, this.currentInfo.numerals[newChordIndexes[i]]);
@@ -404,7 +414,7 @@ chordProgressions.prototype = {
 			fourthVariation = [];
 
 		if (this.tonality !== "Major") {
-			// Minor	
+			// Minor
 			fourthVariation.push("P");
 			if (this.currentSequence.indexOf(1) !== -1) {
 				// Contains II chord
@@ -660,7 +670,7 @@ chordProgressions.prototype = {
 				break;
 
 			case "O":
-				// Variation O: Suspension 
+				// Variation O: Suspension
 				alter = 1;
 				add = 1;
 				var temp = this.findChordSequenceIndexes(0);
@@ -709,7 +719,7 @@ chordProgressions.prototype = {
 	},
 
 	setPrintText: function() {
-		// Concatentes chord names and numerals to be printed 
+		// Concatentes chord names and numerals to be printed
 		for (var i = 0; i < this.currentSequence.length; i++) {
 			var text = this.currentNames[i].note;
 			if (this.currentNames[i].seventhPrefix !== "") {
@@ -726,7 +736,7 @@ chordProgressions.prototype = {
 }
 
 /*******************
- * Element callbacks 
+ * Element callbacks
  ********************/
 $('#refresh').on('click', function() {
 	loadNewProgression("new", 0);
@@ -783,7 +793,7 @@ function loadNewProgression(newProgression, improvement) {
 		chordProgression.decorateProgression(improvement);
 	};
 
-	// Set colors	
+	// Set colors
 	if (chordProgression.tonality !== "major") {
 		colorSet = colors[chordProgression.modulateAmount];
 	} else {
@@ -807,7 +817,7 @@ function loadNewProgression(newProgression, improvement) {
 				"class": "chordBlock"
 			}).hide();
 			$(".progression").append($div);
-			// Update CSS	
+			// Update CSS
 			updateChordBlock(blockId, colorSet, i);
 			// Fade In
 			$("#" + blockId).fadeIn(500);

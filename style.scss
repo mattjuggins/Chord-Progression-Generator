@@ -1,5 +1,14 @@
+// @Author: Matthew Juggins <matthewjuggins>
+// @Date:   04-10-16
+// @Email:  jugginsmatthew@gmail.com
+// @Last modified by:   matthewjuggins
+// @Last modified time: 26-10-16
+
 /* Imports */
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css";
+/*
+@fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css";
+@fa-font-path: "../CodeLibraries/min/font-awesome.min.css";
+*/
 
 /* Variables */
 $text-shadow: 1px 1px 1px #000;
@@ -177,7 +186,7 @@ h5 {
 	height: 99px;
 	line-height: 100px;
 	margin: 0px 1px 1px 0px;
-	
+
 }
 
 #fancy {
