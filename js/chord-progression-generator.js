@@ -6,18 +6,6 @@
 * @Last modified time: 26-10-16
 */
 
-
-
-/* NOT WORKING IN SAFARI CURRENTLY.*/
-/*
- * Chord progression Generator.js
- * Matthew Juggins
- * Modified: 	30/08/16 : Refactoring,
- * 				31/08/16 : Fixed variation "O"
- *				13/09/16 : Darker theme to match other pens on showcase
- *
- */
-
 var polySynth = new Tone.PolySynth(4, Tone.FMSynth, {
 	"harmonicity": 0.5,
 	"modulationIndex": 1.2,

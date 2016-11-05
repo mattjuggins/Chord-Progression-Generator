@@ -9,6 +9,10 @@
 @fa-font-path: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css";
 @fa-font-path: "../CodeLibraries/min/font-awesome.min.css";
 */
+@font-face {
+font-family: 'Roboto Condensed';
+src: url(/fonts/RobotoCondensed-Regular.ttf)  format('truetype'), /* Safari, Android, iOS */
+}
 
 /* Variables */
 $text-shadow: 1px 1px 1px #000;
